@@ -6,9 +6,10 @@
             import html from 'https://unpkg.com/hyperlit'
 
             app({
-                init: {},
-                view: () => h('main',{},[
-                	h('h1',{class:"greet"}, text("hello"))
+                init: {num:42},
+                view: (state) => h('main',{},[
+                	h('h1',{class:"greet"}, text("hello")),
+                	h('p',{},text(state.num))
                 	]),
                 node: document.getElementById('app')
             })
