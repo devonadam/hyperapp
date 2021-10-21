@@ -5,11 +5,13 @@
             import { app,text,h } from 'https://unpkg.com/hyperapp'
             import html from 'https://unpkg.com/hyperlit'
 
+            let OnClick=(state,ev) => ({num:state.num+1})
+
             app({
                 init: {num:42},
                 view: (state) => h('main',{},[
                 	h('h1',{class:"greet"}, text("hello")),
-                	h('p',{},text(state.num))
+                	h('p',{onclick:OnClick},text(state.num))
                 	]),
                 node: document.getElementById('app')
             })
