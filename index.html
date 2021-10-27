@@ -5,11 +5,12 @@
             import { app,text,h } from 'https://unpkg.com/hyperapp'
 
             let OnClick=(state,ev) => ({num:state.num+1})
-
+            let log = (state,localState) => console.log("localData - "+localState);
+            
             app({
                 init: {num:42},
                 view: (state) => h('main',{},[
-                	h('h1',{class:"greet"}, text("hello")),
+                	h('h1',{class:"greet",onclick:[log,43]}, text("hello")),
                 	h('p',{onclick:OnClick},text(state.num))
                 	]),
                 node: document.getElementById('app')
